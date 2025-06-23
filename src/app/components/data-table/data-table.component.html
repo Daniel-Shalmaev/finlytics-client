@@ -1,0 +1,21 @@
+<div class="table-container">
+    <table class="modern-table">
+        <thead>
+            <tr>
+                <th *ngFor="let col of getColumnKeys()" (click)="sortData(col)">
+                    {{ columnTitles[col] || col }}
+                    <span *ngIf="sortColumn === col">
+                        {{ sortDirection === 'asc' ? '🔼' : '🔽' }}
+                    </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of tableData">
+                <td *ngFor="let col of getColumnKeys()">
+                    {{ formatValue(row[col]) }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

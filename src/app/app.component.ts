@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent, DashboardComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ship4wd-client';
+  dateRange: string = '2021-06-01 - 2021-12-31';
+  title = 'finlytics-client';
+  
+  // Updates the displayed date range when a new range is selected in the dashboard
+  updateDateRange(newRange: string) {
+    this.dateRange = newRange;
+  }
 }
