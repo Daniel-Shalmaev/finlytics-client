@@ -1,13 +1,21 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input() dateRange: string = ''; 
+  constructor(private authService: AuthService, private router: Router) {}
+
+  goToDashboard() {
+  this.router.navigate(['/dashboard']);
+}
+
+  onLogout() {
+    this.authService.logout();
+  }
 }

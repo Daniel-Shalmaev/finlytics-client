@@ -1,6 +1,13 @@
-<header class="bg-primary text-white text-center py-4 shadow-sm">
+<header>
   <div class="container">
-    <h1 class="mb-2">📊 דוח פיננסי חנות</h1>
-    <p class="lead">📅 טווח תאריכים: <span class="fw-bold">{{ dateRange }}</span></p>
+    <div class="brand" (click)="goToDashboard()">
+      Finlytics
+    </div>
+
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="router-link-active">Dashboard</a>
+      <a routerLink="/profile" routerLinkActive="router-link-active">Profile</a>
+      <button (click)="onLogout()">Logout</button>
+    </nav>
   </div>
 </header>

@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   toDate: string = '2021-12-31'; // Default end date
   chartType: ChartType = 'line' as ChartType; // Default chart type  
   showCount: number = 10; // Default number of data points to display
-  tableData: any[] = []; 
+  tableData: any[] = [];
 
   chartData: ChartData<ChartType> = {
     labels: [],

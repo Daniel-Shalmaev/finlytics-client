@@ -1,0 +1,30 @@
+<div class="auth-container">
+  <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Email:</label>
+      <input formControlName="email" type="email" />
+    </div>
+
+    <div>
+      <label>Password:</label>
+      <input formControlName="password" type="password" />
+    </div>
+
+    <div *ngIf="!isLoginMode">
+      <label>Confirm Password:</label>
+      <input formControlName="confirmPassword" type="password" />
+    </div>
+
+    <button type="submit" [disabled]="authForm.invalid">
+      {{ isLoginMode ? 'Login' : 'Register' }}
+    </button>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <button type="button" (click)="toggleMode()">
+      Switch to {{ isLoginMode ? 'Register' : 'Login' }}
+    </button>
+  </form>
+</div>
