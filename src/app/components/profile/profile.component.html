@@ -1,0 +1,23 @@
+<div class="profile-container">
+    <h2>Edit Profile</h2>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+        <label>Username:
+            <input formControlName="username" />
+        </label>
+
+        <label>First Name:
+            <input formControlName="firstName" />
+        </label>
+
+        <label>Last Name:
+            <input formControlName="lastName" />
+        </label>
+
+        <label>Email:
+            <input formControlName="email" />
+        </label>
+
+        <button type="submit" [disabled]="profileForm.invalid">Save</button>
+    </form>
+</div>

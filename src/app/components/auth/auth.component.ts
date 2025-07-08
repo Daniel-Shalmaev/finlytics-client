@@ -45,18 +45,15 @@ export class AuthComponent {
 
     const request$ = this.isLoginMode
       ? this.authService.login({ email, password })
-      : this.authService.register({ email, password });
+      : this.authService.register({ email, password, confirmPassword });
 
     request$.subscribe({
       next: (res) => {
         this.authService.setToken(res.token);
-        this.router.navigate(['/dashboard']);
+        const redirectTo = this.isLoginMode ? '/dashboard' : '/profile'; 
+        this.router.navigate([redirectTo]);
       },
-      error: () => {
-        this.errorMessage = this.isLoginMode
-          ? 'Login failed. Check your credentials.'
-          : 'Registration failed. Try again.';
-      }
     });
+
   }
 }
