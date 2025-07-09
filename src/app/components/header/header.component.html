@@ -1,13 +1,15 @@
 <header>
   <div class="container">
-    <div class="brand" (click)="goToDashboard()">
-      Finlytics
-    </div>
+    <div class="brand" (click)="goToDashboard()">Finlytics</div>
 
     <nav>
       <a routerLink="/dashboard" routerLinkActive="router-link-active">Dashboard</a>
       <a routerLink="/profile" routerLinkActive="router-link-active">Profile</a>
-      <button (click)="onLogout()">Logout</button>
+
+      <div class="user-info">
+        <span *ngIf="firstName" class="greeting">Hi, {{ firstName }}</span>
+        <button (click)="onLogout()">Logout</button>
+      </div>
     </nav>
   </div>
 </header>

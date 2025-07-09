@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { FinanceData } from '../models/finance.model';
+import { environment } from '../../environments/environment';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://localhost:7168/api/finance/get-data';
+  private apiUrl = `${environment.apiBaseUrl}/finance/get-data`;
 
   private financeDataSubject = new BehaviorSubject<FinanceData[]>([]);
   public financeData$ = this.financeDataSubject.asObservable();

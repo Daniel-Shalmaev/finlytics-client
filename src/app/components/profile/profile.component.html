@@ -3,20 +3,33 @@
 
     <form [formGroup]="profileForm" (ngSubmit)="onSave()">
         <label>Username:
-            <input formControlName="username" />
+            <input *ngIf="!loading; else usernameLoading" formControlName="username" />
+            <ng-template #usernameLoading>
+                <div class="skeleton-input"></div>
+            </ng-template>
         </label>
 
         <label>First Name:
-            <input formControlName="firstName" />
+            <input *ngIf="!loading; else firstNameLoading" formControlName="firstName" />
+            <ng-template #firstNameLoading>
+                <div class="skeleton-input"></div>
+            </ng-template>
         </label>
 
         <label>Last Name:
-            <input formControlName="lastName" />
+            <input *ngIf="!loading; else lastNameLoading" formControlName="lastName" />
+            <ng-template #lastNameLoading>
+                <div class="skeleton-input"></div>
+            </ng-template>
         </label>
 
         <label>Email:
-            <input formControlName="email" />
+            <input *ngIf="!loading; else emailLoading" formControlName="email" />
+            <ng-template #emailLoading>
+                <div class="skeleton-input"></div>
+            </ng-template>
         </label>
+
 
         <button type="submit" [disabled]="profileForm.invalid">Save</button>
     </form>
