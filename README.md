@@ -1,8 +1,25 @@
-# finlytics-client
+# Finlytics Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+Finlytics is a modern frontend web application built with Angular. It provides a responsive UI for user authentication, profile management, and financial analytics powered by the Finlytics backend.
 
-## Development server
+## Features
+
+- Login and registration with JWT token handling
+- Profile page with form editing and skeleton loading animation
+- AuthGuard and HTTP Interceptor for secure routes
+- Modular, standalone Angular components
+- Styled with SCSS and responsive layout (PC-first)
+
+## Planned Improvements
+
+- [ ] Responsive mobile header with hamburger menu
+- [ ] Toast notifications for user feedback
+- [ ] Dashboard with analytics charts
+- [ ] Role-based route protection
+- [ ] Dockerfile for containerized frontend
+- [ ] Unit and E2E tests
+
+## Development Server
 
 To start a local development server, run:
 
@@ -10,50 +27,74 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
+Then open your browser at `http://localhost:4200/`. The app will reload on changes.
 
 ## Building
 
-To build the project run:
+To build the project for production:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build output will be stored in the `dist/` directory.
 
-## Running unit tests
+## Code Scaffolding
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To generate a new component:
+
+```bash
+ng generate component component-name
+```
+
+See all options:
+
+```bash
+ng generate --help
+```
+
+## Testing
+
+To run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+To run end-to-end tests (e2e):
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+_Note: You can configure your own e2e test framework._
+
+## Project Structure
+
+- `src/app/`
+  - `app.component.ts` – Root component and routing config
+
+- `components/`
+  - `auth/` – Login and Register pages
+  - `dashboard/` – Main dashboard view
+  - `data-table/` – Reusable table for financial data
+  - `header/` – Top navigation with user greeting
+  - `footer/` – Bottom site footer
+  - `profile/` – User profile editing
+
+- `services/`
+  - `auth.service.ts` – JWT auth, name handling
+  - `api.service.ts` – General HTTP logic
+
+- `guards/`
+  - `auth.guard.ts` – Protects routes based on login
+
+- `interceptors/`
+  - `auth.interceptor.ts` – Adds JWT token to requests
+
+- `models/`
+  - `finance.model.ts` – Interface for financial data
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For more Angular CLI usage and guides, visit the [Angular CLI Docs](https://angular.dev/tools/cli).
